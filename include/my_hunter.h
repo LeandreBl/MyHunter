@@ -10,7 +10,7 @@
 
 # include "csfml.h"
 
-# define NB_EVENT	(3)
+# define NB_EVENT	(4)
 # define FRAMERATE	(60)
 
 # define MEM_ERROR	("[%sError%s] Not enough memory\n")
@@ -65,4 +65,7 @@ int		poll_event_cursor(window_t *window,
 				  misc_t *misc, sfEvent *event);
 int		poll_event_click(window_t *window,
 				 misc_t *misc, sfEvent *event);
+int		poll_event_resize(window_t *window,
+				  misc_t *misc, sfEvent *event);
+
 #endif /* !MY_HUNTER_H_ */

@@ -26,6 +26,7 @@ SRCS		+= src/poll_event.c
 SRCS		+= src/poll_event_close.c
 SRCS		+= src/poll_event_cursor.c
 SRCS		+= src/poll_event_click.c
+SRCS		+= src/poll_event_resize.c
 SRCS		+= src/pause.c
 SRCS		+= src/timer.c
 SRCS		+= src/display.c
