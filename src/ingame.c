@@ -13,6 +13,8 @@ int		ingame(window_t *window, misc_t *misc)
   {
     window_clear(window);
     display_background(window, misc);
+    if (key_released(sfKeyEscape) || key_released(sfKeyP))
+      dopause(window, misc);
     if (pollevent(window, misc) == -1)
       return (-1);
     window_refresh(window);

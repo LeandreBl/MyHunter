@@ -23,6 +23,7 @@ SRCS		+= src/init_misc.c
 SRCS		+= src/ingame.c
 SRCS		+= src/poll_event.c
 SRCS		+= src/poll_event_close.c
+SRCS		+= src/pause.c
 SRCS		+= src/timer.c
 SRCS		+= src/display_background.c
 
