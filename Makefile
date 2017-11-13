@@ -20,12 +20,15 @@ SRCS		= src/main.c
 SRCS		+= src/usage.c
 SRCS		+= src/start_game.c
 SRCS		+= src/init_misc.c
+SRCS		+= src/init_sounds.c
 SRCS		+= src/ingame.c
 SRCS		+= src/poll_event.c
 SRCS		+= src/poll_event_close.c
+SRCS		+= src/poll_event_cursor.c
+SRCS		+= src/poll_event_click.c
 SRCS		+= src/pause.c
 SRCS		+= src/timer.c
-SRCS		+= src/display_background.c
+SRCS		+= src/display.c
 
 OBJ		= $(SRCS:.c=.o)
 

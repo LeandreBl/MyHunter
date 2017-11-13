@@ -10,8 +10,12 @@
 
 # include "csfml.h"
 
-# define NB_EVENT	(1)
+# define NB_EVENT	(3)
 # define FRAMERATE	(60)
+
+# define MEM_ERROR	("[%sError%s] Not enough memory\n")
+
+# define SOUND_SHOT	("sounds/Duck Hunt SFX (13).ogg")
 
 struct		misc_s
 {
@@ -43,14 +47,22 @@ typedef struct clocker_s clocker_t;
 int		usage(int ac, char **av);
 int		start_game(void);
 int		init_misc(misc_t *misc);
+int		init_sounds(window_t *window);
 int		ingame(window_t *window, misc_t *misc);
 int		pollevent(window_t *window, misc_t *misc);
 int		refresh_clock(clocker_t *timer);
 int		set_clock(clocker_t *timer);
 void		display_background(window_t *window, misc_t *misc);
+void		display_cursor(window_t *window, misc_t *misc);
+void		display_bushes(window_t *window, misc_t *misc);
 void		dopause(window_t *window, misc_t *misc);
+int		check_alloc(void **ptrs, int total);
 
 /* Poll event ptr functions */
 int		poll_event_close(window_t *window,
+				 misc_t *misc, sfEvent *event);
+int		poll_event_cursor(window_t *window,
+				  misc_t *misc, sfEvent *event);
+int		poll_event_click(window_t *window,
 				 misc_t *misc, sfEvent *event);
 #endif /* !MY_HUNTER_H_ */

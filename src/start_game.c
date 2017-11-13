@@ -17,7 +17,7 @@ int		start_game(void)
   misc_t	misc;
 
   window = init_window(600, 4.0 / 3.0, "MyHunter", sfResize | sfClose);
-  if (init_misc(&misc) == -1)
+  if (init_misc(&misc) == -1 || init_sounds(window) == -1)
   {
     free_window(window);
     return (-1);

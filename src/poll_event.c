@@ -24,6 +24,8 @@ static void	__add(poll_t *index, sfEventType type,
 static void	__init(poll_t tab[])
 {
   __add(&tab[0], sfEvtClosed, poll_event_close);
+  __add(&tab[1], sfEvtMouseMoved, poll_event_cursor);
+  __add(&tab[2], sfEvtMouseButtonPressed, poll_event_click);
 }
 
 int		pollevent(window_t *window, misc_t *misc)

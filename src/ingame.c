@@ -17,6 +17,8 @@ int		ingame(window_t *window, misc_t *misc)
       dopause(window, misc);
     if (pollevent(window, misc) == -1)
       return (-1);
+    display_cursor(window, misc);
+    display_bushes(window, misc);
     window_refresh(window);
   }
   return (0);
