@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Sun Apr  2 12:20:16 2017 Léandre Blanchard
-** Last update Tue Nov  7 22:37:04 2017 Léandre Blanchard
+** Last update Sat Nov 11 15:16:08 2017 Léandre Blanchard
 */
 
 #include "csfml.h"
@@ -14,11 +14,48 @@
 #include "colors.h"
 
 /*
+** Create a sprite from <pathname> with the texture at <rect>
+** Return NULL on Error
+*/
+sprite_t		*create_sprite_rect(const char *pathname,
+					    const sfIntRect area)
+{
+  sprite_t              *sprite;
+
+  mprintf("[%sInfo%s] Opening %s%s%s\n",
+	  YELLOW, RESET, CYAN, pathname, RESET);
+  sprite = my_calloc(sizeof(sprite_t));
+  if (sprite == NULL)
+    return (NULL);
+  if (area.top == -1 && area.left == -1 &&
+      area.width == -1 && area.height == -1)
+    sprite->texture = sfTexture_createFromFile(pathname, NULL);
+  else
+    sprite->texture = sfTexture_createFromFile(pathname, &area);
+  sprite->sprite = sfSprite_create();
+  if (sprite->texture == NULL || sprite->sprite == NULL)
+  {
+    mprintf("[%sError%s]", RED, RESET);
+    sfTexture_destroy(sprite->texture);
+    sfree(&sprite);
+    return (NULL);
+  }
+  sfSprite_setTexture(sprite->sprite, sprite->texture, sfTrue);
+  return (sprite);
+}
+
+/*
 ** add the sprite_t "sprite" on the window_t "window" at the pos.x, pos.y
 ** will need a call to window_refresh(window) to display it
 */
-void			put_sprite(window_t *window, sprite_t *sprite, sfVector2f pos)
+void			put_sprite(window_t *window, sprite_t *sprite,
+				   sfVector2f pos)
 {
+  if (sprite == NULL || sprite->sprite == NULL || sprite->texture == NULL)
+  {
+    mdprintf(2, "[%sWarning%s] PutSprite : NULL sprite\n", GREEN, RESET);
+    return;
+  }
   sfSprite_setPosition(sprite->sprite, pos);
   sfSprite_setScale(sprite->sprite, xy_vectorf(1, 1));
   sfRenderWindow_drawSprite(window->window, sprite->sprite, NULL);
@@ -29,7 +66,9 @@ void			put_sprite(window_t *window, sprite_t *sprite, sfVector2f pos)
 ** does not have any conflict with fonction above
 */
 void			put_sprite_resize(window_t *window,
-				sprite_t *sprite, sfVector2f pos, sfVector2f resize)
+					  sprite_t *sprite,
+					  sfVector2f pos,
+					  sfVector2f resize)
 {
   sfSprite_setScale(sprite->sprite, resize);
   sfSprite_setPosition(sprite->sprite, pos);
@@ -42,23 +81,7 @@ void			put_sprite_resize(window_t *window,
 */
 sprite_t		*create_sprite(const char *pathname)
 {
-  sprite_t		*sprite;
-
-  sprite = my_calloc(sizeof(sprite_t));
-  if (sprite == NULL)
-    return (NULL);
-  sprite->texture = sfTexture_createFromFile(pathname, NULL);
-  sprite->sprite = sfSprite_create();
-  if (sprite->texture == NULL || sprite->sprite == NULL)
-  {
-    mprintf("[%sError%s] Could not create %s sprite\n",
-	    BOLDRED, RESET, pathname);
-    sfTexture_destroy(sprite->texture);
-    sfree(&sprite);
-    return (NULL);
-  }
-  sfSprite_setTexture(sprite->sprite, sprite->texture, sfTrue);
-  return (sprite);
+  return (create_sprite_rect(pathname, simple_int_rect(-1, -1, -1, -1)));
 }
 /*
 ** create an array of sprite_t, ended by a NULL ptr

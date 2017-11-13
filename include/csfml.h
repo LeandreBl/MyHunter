@@ -77,6 +77,8 @@ struct			window_s
 typedef struct window_s window_t;
 typedef struct sprite_s sprite_t;
 
+sfIntRect	simple_int_rect(int x, int y, int width, int height);
+
 void		my_draw_line(window_t *window, sfVector2f from,
 			     sfVector2f to, sfColor color);
 
@@ -94,7 +96,8 @@ void		free_sprites(sprite_t **sprites);
 
 sprite_t	**create_sprites(int nb);
 
-int		is_in_rect(window_t *window, sfVector2f origin, sfVector2f size);
+int		is_in_rect(window_t *window
+			   , sfVector2f origin, sfVector2f size);
 
 void		window_clear(window_t *window);
 
@@ -104,7 +107,8 @@ void		window_update(window_t *window);
 
 void		window_refresh(window_t *window);
 
-void		put_sprite(window_t *window, sprite_t *sprite, sfVector2f pos);
+void		put_sprite(window_t *window,
+			   sprite_t *sprite, sfVector2f pos);
 
 void		put_sprite_resize(window_t *window, sprite_t *sprite,
 				  sfVector2f pos, sfVector2f resize);
@@ -145,6 +149,8 @@ void		put_number(int nb, sfVector2f pos,
 window_t	*init_window(int height, float dim, char *name, int bar);
 
 sprite_t	*create_sprite(const char *pathname);
+sprite_t	*create_sprite_rect(const char *pathname,
+				    const sfIntRect area);
 
 #ifdef __cplusplus
 }

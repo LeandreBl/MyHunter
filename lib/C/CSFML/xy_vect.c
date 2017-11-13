@@ -9,6 +9,18 @@
 */
 
 #include "csfml.h"
+
+sfIntRect	simple_int_rect(int x, int y, int width, int height)
+{
+  sfIntRect	rect;
+
+  rect.left = x;
+  rect.top = y;
+  rect.width = width;
+  rect.height = height;
+  return (rect);
+}
+
 /*
 ** Does functions all return a sfVector with it's following instructions
 ** x, y and z

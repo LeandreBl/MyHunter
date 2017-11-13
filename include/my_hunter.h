@@ -17,6 +17,7 @@ struct		misc_s
 {
   sprite_t	**misc;
   sprite_t	**duck;
+  sprite_t	**dog;
 };
 
 struct		poll_s
@@ -46,6 +47,7 @@ int		ingame(window_t *window, misc_t *misc);
 int		pollevent(window_t *window, misc_t *misc);
 int		refresh_clock(clocker_t *timer);
 int		set_clock(clocker_t *timer);
+void		display_background(window_t *window, misc_t *misc);
 
 /* Poll event ptr functions */
 int		poll_event_close(window_t *window,
