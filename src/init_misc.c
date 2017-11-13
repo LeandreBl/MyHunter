@@ -32,7 +32,7 @@ int      check_alloc(void **ptrs, int total)
 
 static int	add_misc(misc_t *sprites)
 {
-  sprites->misc = create_sprites(3);
+  sprites->misc = my_calloc(sizeof(sprite_t *) * 4);
   if (sprites->misc == NULL)
   {
     mdprintf(2, MEM_ERROR, RED, RESET);

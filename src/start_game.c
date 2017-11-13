@@ -22,6 +22,7 @@ int		start_game(void)
     free_window(window);
     return (-1);
   }
+  pos_mouse(window);
   window->font = my_strdup("fonts/audims.ttf");
   sfRenderWindow_setFramerateLimit(window->window, FRAMERATE);
   if (ingame(window, &misc) == -1)
