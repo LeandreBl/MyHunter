@@ -5,6 +5,8 @@
 ** start game
 */
 
+#include <time.h>
+
 #include "my_hunter.h"
 
 #include "my.h"
@@ -35,6 +37,7 @@ static void	free_memory(window_t *window, misc_t *misc)
   mprintf("[%sFree%s] free %sDucks%s\n", BOLDMAGENTA, RESET,
 	  CYAN, RESET);
   free_ducks(misc->duck);
+  sfree(&misc->ducks.ducks);
   mprintf("[%sMemory Freed%s]\n", YELLOW, RESET);
 }
 
@@ -43,6 +46,7 @@ int		start_game(void)
   window_t	*window;
   misc_t	misc;
 
+  srand(time(NULL));
   window = init_window(600, 4.0 / 3.0, "MyHunter", sfResize | sfClose);
   if (init_misc(&misc) == -1 || init_sounds(window) == -1)
   {

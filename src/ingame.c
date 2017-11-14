@@ -9,6 +9,10 @@
 
 int		ingame(window_t *window, misc_t *misc)
 {
+  sfThread	*ducks;
+
+  if (start_ducks_ia_thread(&misc->ducks, &ducks) == -1)
+    return (-1);
   while (sfRenderWindow_isOpen(window->window))
   {
     window_clear(window);
@@ -17,9 +21,11 @@ int		ingame(window_t *window, misc_t *misc)
       dopause(window, misc);
     if (pollevent(window, misc) == -1)
       return (-1);
+    display_ducks(window, misc);
     display_cursor(window, misc);
     display_bushes(window, misc);
     window_refresh(window);
   }
+  free_thread(ducks);
   return (0);
 }

@@ -10,6 +10,21 @@
 #include "my.h"
 #include "defines.h"
 
+void		display_ducks(window_t *window, misc_t *misc)
+{
+  int		i;
+  vect_t	*duck;
+
+  i = 0;
+  while (i < misc->ducks.size)
+  {
+    duck = &misc->ducks.ducks[i];
+    if (duck->status != dead && duck->id >= 0)
+      put_sprite(window, misc->duck[duck->type][duck->id], duck->pos);
+    ++i;
+  }
+}
+
 void		display_bushes(window_t *window, misc_t *misc)
 {
   sfVector2f	pos;

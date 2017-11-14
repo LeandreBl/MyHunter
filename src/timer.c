@@ -13,6 +13,12 @@
 #include "defines.h"
 #include "colors.h"
 
+int		set_clock(clocker_t *timer)
+{
+  timer->prev = timer->refresh;
+  return (refresh_clock(timer));
+}
+
 int		refresh_clock(clocker_t *timer)
 {
   timer->refresh = clock();
@@ -21,12 +27,11 @@ int		refresh_clock(clocker_t *timer)
     mdprintf(2,"[%sError%s] Error : CLOCK(2) syscall failed\n",
 	     RED, RESET);
   }
-  timer->time =timer->refresh - timer->prev;
-  timer->prev =timer->refresh;
+  timer->time = timer->refresh - timer->prev;
   return (0);
 }
 
-int		set_clock(clocker_t *timer)
+int		start_clock(clocker_t *timer)
 {
   timer->prev = clock();
   if (timer->prev == -1)
