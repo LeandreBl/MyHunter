@@ -31,6 +31,7 @@ SRCS	+= put_text.c
 SRCS	+= quit.c
 SRCS	+= thread.c
 SRCS	+= xy_vect.c
+SRCS	+= distance.c
 
 OBJS	= $(SRCS:.c=.o)
 

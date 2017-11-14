@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Fri Mar 31 13:58:23 2017 Léandre Blanchard
-** Last update Tue Nov  7 20:06:25 2017 Léandre Blanchard
+** Last update Tue Nov 14 20:11:53 2017 Léandre Blanchard
 */
 
 #ifndef MY_CSFML_H_
@@ -24,17 +24,9 @@ extern "C" {
 # include <SFML/System.h>
 # include <SFML/Window.h>
 
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <stddef.h>
+# include <stdlib.h>
 # include <math.h>
 # include <unistd.h>
-# include <stdlib.h>
-# include <time.h>
-# include <termios.h>
-# include <curses.h>
-# include <dirent.h>
 
 # include "my.h"
 
@@ -151,6 +143,8 @@ window_t	*init_window(int height, float dim, char *name, int bar);
 sprite_t	*create_sprite(const char *pathname);
 sprite_t	*create_sprite_rect(const char *pathname,
 				    const sfIntRect area);
+
+double		distance(sfVector2f a, sfVector2f b);
 
 #ifdef __cplusplus
 }

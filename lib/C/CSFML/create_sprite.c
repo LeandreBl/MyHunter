@@ -5,11 +5,12 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Sun Apr  2 12:20:16 2017 Léandre Blanchard
-** Last update Sat Nov 11 15:16:08 2017 Léandre Blanchard
+** Last update Mon Nov 13 21:04:08 2017 Léandre Blanchard
 */
 
 #include "csfml.h"
 
+#include "my.h"
 #include "defines.h"
 #include "colors.h"
 
@@ -35,7 +36,6 @@ sprite_t		*create_sprite_rect(const char *pathname,
   sprite->sprite = sfSprite_create();
   if (sprite->texture == NULL || sprite->sprite == NULL)
   {
-    mprintf("[%sError%s]", RED, RESET);
     sfTexture_destroy(sprite->texture);
     sfree(&sprite);
     return (NULL);

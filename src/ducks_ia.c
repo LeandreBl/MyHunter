@@ -5,6 +5,8 @@
 ** ducks ia
 */
 
+#include <time.h>
+
 #include "my_hunter.h"
 
 #include "my.h"

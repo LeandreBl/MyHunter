@@ -33,6 +33,7 @@ SRCS		+= src/timer.c
 SRCS		+= src/display.c
 SRCS		+= src/ducks_ia.c
 SRCS		+= src/spawn_duck.c
+SRCS		+= src/shot_duck.c
 
 OBJ		= $(SRCS:.c=.o)
 

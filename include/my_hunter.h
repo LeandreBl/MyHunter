@@ -91,6 +91,7 @@ void		display_bushes(window_t *window, misc_t *misc);
 void		dopause(window_t *window, misc_t *misc);
 int		check_alloc(void **ptrs, int total);
 int		start_ducks_ia_thread(duck_t *ducks, sfThread **thread);
+void		shot_duck(misc_t *misc, sfVector2i pos);
 
 /* Poll event ptr functions */
 int		poll_event_close(window_t *window,
