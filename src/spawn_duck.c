@@ -19,7 +19,7 @@ static int	realloc_ducks(duck_t *ducks)
   new = my_calloc(sizeof(vect_t) * ducks->size);
   if (new == NULL)
     return (-1);
-  memcopy(new, ducks->ducks, sizeof(vect_t) * (ducks->size - 1));
+  memcopy(new, ducks->ducks, sizeof(vect_t) * (ducks->size - 2));
   sfree(&ducks->ducks);
   ducks->ducks = new;
   return (0);

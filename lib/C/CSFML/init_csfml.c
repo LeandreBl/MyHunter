@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Fri Mar 31 14:24:11 2017 Léandre Blanchard
-** Last update Mon Nov 13 22:27:43 2017 Léandre Blanchard
+** Last update Tue Nov  7 23:46:38 2017 Léandre Blanchard
 */
 
 #include "csfml.h"
@@ -38,17 +38,10 @@ sfRenderWindow          *create_window(char *name, int width,
 */
 sfUint8                 *pixels_buffer(int width, int height)
 {
-  int			*pixels;
-  int			i;
+  sfUint8               *pixels;
 
-  i = 0;
-  pixels = malloc(width * height * sizeof(int));
-  while (i < width * height)
-  {
-    pixels[i] = 0;
-    ++i;
-  }
-  return ((sfUint8 *)pixels);
+  pixels = my_calloc(4 * width * height * sizeof(sfUint8));
+  return (pixels);
 }
 /*
 ** Create a window_t object, all malloc and initialized with NULL

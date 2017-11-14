@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Fri Mar 31 14:04:57 2017 Léandre Blanchard
-** Last update Mon Nov 13 22:27:06 2017 Léandre Blanchard
+** Last update Tue Nov  7 20:01:02 2017 Léandre Blanchard
 */
 
 #include "csfml.h"
@@ -63,10 +63,8 @@ void		clear_color(window_t *window, sfColor color)
 void		clear_white(window_t *window)
 {
   int		i;
-  int		*pixels;
 
-  pixels = (int *)window->pixels;
   i = 0;
-  while (i != window->height * window->width)
-    pixels[i++] = 255;
+  while (i != window->height * 4 * window->width)
+    window->pixels[i++] = 255;
 }
