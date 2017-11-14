@@ -1,7 +1,7 @@
 # MyHunter
 MyHunter 2022 { Epitech } CSFML project
 >
-3h for the moment
+5h27 of work for the moment
 >
 It's a DuckHunt like game.
 >
