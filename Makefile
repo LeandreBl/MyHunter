@@ -21,6 +21,7 @@ SRCS		+= src/usage.c
 SRCS		+= src/start_game.c
 SRCS		+= src/init_misc.c
 SRCS		+= src/init_sounds.c
+SRCS		+= src/init_ducks.c
 SRCS		+= src/ingame.c
 SRCS		+= src/poll_event.c
 SRCS		+= src/poll_event_close.c

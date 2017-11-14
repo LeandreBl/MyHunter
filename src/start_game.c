@@ -11,6 +11,33 @@
 #include "colors.h"
 #include "defines.h"
 
+static void	free_ducks(sprite_t ***sprites)
+{
+  int		i;
+
+  i = 0;
+  while (sprites != NULL && sprites[i] != NULL)
+  {
+    free_sprites(sprites[i]);
+    ++i;
+  }
+  sfree(&sprites);
+}
+
+static void	free_memory(window_t *window, misc_t *misc)
+{
+  mprintf("[%sFree%s] free %sWindow%s\n", BOLDMAGENTA, RESET,
+	  CYAN, RESET);
+  free_window(window);
+  mprintf("[%sFree%s] free %sMiscs%s\n", BOLDMAGENTA, RESET,
+	  CYAN, RESET);
+  free_sprites(misc->misc);
+  mprintf("[%sFree%s] free %sDucks%s\n", BOLDMAGENTA, RESET,
+	  CYAN, RESET);
+  free_ducks(misc->duck);
+  mprintf("[%sMemory Freed%s]\n", YELLOW, RESET);
+}
+
 int		start_game(void)
 {
   window_t	*window;
@@ -28,8 +55,7 @@ int		start_game(void)
   if (ingame(window, &misc) == -1)
     mdprintf(2, "[%sWarning%s] An error occured ingame\n",
 	     GREEN, RESET);
-  free_window(window);
-  free_sprites(misc.misc);
-  free_sprites_only(misc.duck);
+  free_memory(window, &misc);
+  
   return (0);
 }

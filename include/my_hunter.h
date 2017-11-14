@@ -20,7 +20,7 @@
 struct		misc_s
 {
   sprite_t	**misc;
-  sprite_t	**duck;
+  sprite_t	***duck;
   sprite_t	**dog;
 };
 
@@ -48,6 +48,7 @@ int		usage(int ac, char **av);
 int		start_game(void);
 int		init_misc(misc_t *misc);
 int		init_sounds(window_t *window);
+int		init_ducks(sprite_t ***ducks);
 int		ingame(window_t *window, misc_t *misc);
 int		pollevent(window_t *window, misc_t *misc);
 int		refresh_clock(clocker_t *timer);

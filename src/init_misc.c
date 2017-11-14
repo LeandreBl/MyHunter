@@ -29,6 +29,26 @@ int      check_alloc(void **ptrs, int total)
   return (0);
 }
 
+static int	add_duck(misc_t *sprites)
+{
+  int		i;
+
+  sprites->duck = my_calloc(sizeof(sprite_t **) * 4);
+  if (sprites->duck == NULL)
+  {
+    mdprintf(2, MEM_ERROR, RED, RESET);
+    return (-1);
+  }
+  i = 0;
+  while (i < 3)
+    sprites->duck[i++] = my_calloc(sizeof(sprite_t *) * 13);
+  if (check_alloc((void **)sprites->duck, 3) == -1)
+  {
+    mdprintf(2, MEM_ERROR, RED, RESET);
+    return (-1);
+  }
+  return (init_ducks(sprites->duck));
+}
 
 static int	add_misc(misc_t *sprites)
 {
@@ -52,7 +72,8 @@ int		init_misc(misc_t *sprites)
 {
   if (add_misc(sprites) == -1)
     return (-1);
-  sprites->duck = NULL;
+  if (add_duck(sprites) == -1)
+    return (-1);
   sprites->dog = NULL;
   return (0);
 }
