@@ -61,7 +61,7 @@ clean:
 
 fclean: clean
 	$(MAKE) lib/C fclean
-$(MAKE) lib/C/CSFML fclean
+	$(MAKE) lib/C/CSFML fclean
 	$(RM) $(NAME)
 
 re: fclean all

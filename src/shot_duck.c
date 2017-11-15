@@ -12,6 +12,7 @@
 
 static int	__try(misc_t *misc, vect_t *duck, sfVector2i pos)
 {
+  pos.x -= 10;
   if (in_rect(pos, duck->pos, xy_vectorf(42, 42)) == 0)
   {
     duck->status = falling;
