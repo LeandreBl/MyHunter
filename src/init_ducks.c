@@ -21,7 +21,7 @@ static int	__add_fall(sprite_t **duck, int y)
   while (i < 12)
   {
     duck[i] = create_sprite_rect("sprites/misc.png",
-				 simple_int_rect(276, y, 24, 42));
+				 simple_int_rect(x, y, 24, 42));
     if (duck[i] == NULL)
       return (-1);
     x += 24;
