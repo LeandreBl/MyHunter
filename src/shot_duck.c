@@ -12,10 +12,11 @@
 
 static int	__try(misc_t *misc, vect_t *duck, sfVector2i pos)
 {
-  if (in_rect(pos, duck->pos, xy_vectorf(42, 42)))
+  if (in_rect(pos, duck->pos, xy_vectorf(42, 42)) == 0)
   {
     duck->status = falling;
     duck->id = 6;
+    misc->score += (double)(duck->type * 10 + 1) / 2;
   }
   return (0);
 }

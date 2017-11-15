@@ -8,6 +8,7 @@
 NAME	= ../libmy_csfml.a
 
 LIBC	= ../libdefault.a
+LIBCATA = ../libcatalloc.a
 
 CC	= gcc
 
@@ -43,7 +44,8 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(MAKE) ../default
-	$(ARCH) rcT $(NAME) $(LIBC) $(OBJS)
+	$(MAKE) ../catalloc
+	$(ARCH) rcT $(NAME) $(LIBC) $(LIBCATA) $(OBJS)
 
 clean:
 	$(MAKE) ../default clean

@@ -49,9 +49,14 @@ static void	move_ducks(duck_t *ducks)
   {
     if (ducks->ducks[i].status == alive)
     {
-      ducks->ducks[i].pos.x += 1;
+      ducks->ducks[i].pos.x += FLY_SPEED;
       ducks->ducks[i].pos.y += ducks->ducks[i].angle;
       ducks->ducks[i].id = ((int)ducks->ducks[i].pos.x / 8) % 3;
+    }
+    if (ducks->ducks[i].status == falling)
+    {
+      ducks->ducks[i].pos.y += FALL_SPEED;
+      ducks->ducks[i].id = 7 + (int)ducks->ducks[i].pos.y % 4;
     }
     auto_remove_ducks(ducks);
     ++i;

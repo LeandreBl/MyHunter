@@ -14,31 +14,6 @@
 #include "defines.h"
 #include "colors.h"
 
-static void	__fill(char *str, int nb)
-{
-  int		size;
-  int		i;
-
-  i = 0;
-  size = my_intlen(nb);
-  if (nb == 0)
-  {
-    str[0] = '0';
-    return;
-  }
-  if (nb < 0)
-  {
-    str[0] = '-';
-    nb = -nb;
-  }
-  while (nb > 0)
-  {
-    str[size - i - 1] = 48 + nb % 10;
-    nb /= 10;
-    ++i;
-  }
-}
-
 /*
 ** This function allows you to write text on your screen
 ** using window_t, it will get the font of window_t->font
@@ -82,8 +57,7 @@ void            put_number(int nb, sfVector2f pos,
 {
   char          *str;
 
-  str = my_calloc(my_intlen(nb));
-  __fill(str, nb);
+  str = catalloc("%d", nb);
   put_word(str, pos, window, color);
   sfree(&str);
 }

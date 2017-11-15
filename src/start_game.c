@@ -59,7 +59,6 @@ int		start_game(void)
   if (ingame(window, &misc) == -1)
     mdprintf(2, "[%sWarning%s] An error occured ingame\n",
 	     GREEN, RESET);
-  free_memory(window, &misc);
-  
+  free_memory(window, &misc);  
   return (0);
 }

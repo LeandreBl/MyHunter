@@ -14,12 +14,18 @@
 static int	realloc_ducks(duck_t *ducks)
 {
   vect_t	*new;
+  int		i;
 
+  i = 0;
   ducks->size += 1;
   new = my_calloc(sizeof(vect_t) * ducks->size);
   if (new == NULL)
     return (-1);
-  memcopy(new, ducks->ducks, sizeof(vect_t) * (ducks->size - 2));
+  while (i < ducks->size - 1)
+  {
+    new[i] = ducks->ducks[i];
+    ++i;
+  }
   sfree(&ducks->ducks);
   ducks->ducks = new;
   return (0);
@@ -45,6 +51,8 @@ int		spawn_duck(duck_t *ducks)
 {
   int		pos;
 
+  if (ducks->ducks == NULL && realloc_ducks(ducks) == -1)
+    return (-1);
   pos = __new(ducks);
   if (pos == -1)
     return (-1);
@@ -65,7 +73,8 @@ void		auto_remove_ducks(duck_t *ducks)
   while (i < ducks->size)
   {
     duck = &ducks->ducks[i];
-    if (duck->pos.x > 1980 || duck->pos.y < -42)
+    if (duck->pos.x > 1980 || duck->pos.y < -42
+	|| (duck->status == falling && duck->pos.y > 408))
     {
       duck->status = dead;
     }

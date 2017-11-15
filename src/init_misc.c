@@ -75,12 +75,9 @@ int		init_misc(misc_t *sprites)
     return (-1);
   if (add_duck(sprites) == -1)
     return (-1);
-  sprites->ducks.size = 1;
-  sprites->ducks.ducks = my_calloc(sizeof(duck_t));
-  sprites->ducks.ducks[0].status = dead;
-  if (sprites->ducks.ducks == NULL)
-    return (-1);
+  sprites->ducks.size = 0;
+  sprites->ducks.ducks = NULL;
+  sprites->score = 0;
   sprites->dog = NULL;
-  sprites->capture = NULL;
   return (0);
 }
