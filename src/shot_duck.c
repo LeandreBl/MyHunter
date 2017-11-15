@@ -7,11 +7,16 @@
 
 #include "my_hunter.h"
 
-static int	__try(misc_t *misc, sfVector2i pos, int index)
+#include "my.h"
+#include "defines.h"
+
+static int	__try(misc_t *misc, vect_t *duck, sfVector2i pos)
 {
-  misc = misc;
-  pos = pos;
-  index = index;
+  if (in_rect(pos, duck->pos, xy_vectorf(42, 42)))
+  {
+    duck->status = falling;
+    duck->id = 6;
+  }
   return (0);
 }
 
@@ -26,8 +31,8 @@ void		shot_duck(misc_t *misc, sfVector2i pos)
   while (i < misc->ducks.size)
   {
     duck = &misc->ducks.ducks[i];
-    if (distance(fpos, duck->pos) < 100 &&
-	__try(misc, pos, i) == 1)
+    if (distance(fpos, duck->pos) < 60 &&
+	__try(misc, duck, pos) == 1)
       return;
     ++i;
   }

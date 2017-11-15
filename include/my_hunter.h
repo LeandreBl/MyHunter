@@ -20,6 +20,8 @@
 
 # define SOUND_SHOT	("sounds/Duck Hunt SFX (13).ogg")
 
+# define SPAWN_PERC	(100)
+
 enum		status_e
 {
   dead,
@@ -45,6 +47,7 @@ struct		duck_s
 struct		misc_s
 {
   struct duck_s	ducks;
+  sfImage	*capture;
   sprite_t	**misc;
   sprite_t	***duck;
   sprite_t	**dog;
@@ -84,6 +87,7 @@ int		pollevent(window_t *window, misc_t *misc);
 int		refresh_clock(clocker_t *timer);
 int		start_clock(clocker_t *timer);
 int		set_clock(clocker_t *timer);
+void		display_grass(window_t *wnidow, misc_t *misc);
 void		display_ducks(window_t *window, misc_t *misc);
 void		display_background(window_t *window, misc_t *misc);
 void		display_cursor(window_t *window, misc_t *misc);

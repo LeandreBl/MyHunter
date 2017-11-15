@@ -10,6 +10,17 @@
 #include "my.h"
 #include "defines.h"
 
+void		display_grass(window_t *window, misc_t *misc)
+{
+  sfVector2f	scale;
+  sfVector2u	size;
+
+  size = sfTexture_getSize(misc->misc[3]->texture);
+  scale.x = (double)window->width / (double)size.x;
+  scale.y = (double)window->height / (double)size.y;
+  put_sprite_resize(window, misc->misc[3], ORIGIN, scale);
+}
+
 void		display_ducks(window_t *window, misc_t *misc)
 {
   int		i;

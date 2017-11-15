@@ -49,7 +49,7 @@ int		spawn_duck(duck_t *ducks)
   if (pos == -1)
     return (-1);
   ducks->ducks[pos].status = alive;
-  ducks->ducks[pos].pos = xy_vectorf(-42, 50 + rand() % 500);
+  ducks->ducks[pos].pos = xy_vectorf(-42, 40 + rand() % 400);
   ducks->ducks[pos].angle = -1 + (rand() % 10 * 0.1);
   ducks->ducks[pos].type = rand() % 3;
   ducks->ducks[pos].id = rand() % 3;
@@ -66,7 +66,9 @@ void		auto_remove_ducks(duck_t *ducks)
   {
     duck = &ducks->ducks[i];
     if (duck->pos.x > 1980 || duck->pos.y < -42)
+    {
       duck->status = dead;
+    }
     ++i;
   }
 }

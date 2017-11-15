@@ -88,8 +88,10 @@ void		free_sprites(sprite_t **sprites);
 
 sprite_t	**create_sprites(int nb);
 
-int		is_in_rect(window_t *window
-			   , sfVector2f origin, sfVector2f size);
+int		in_rect(sfVector2i pos, sfVector2f origin, sfVector2f size);
+
+int		is_in_rect(window_t *window,
+			   sfVector2f origin, sfVector2f size);
 
 void		window_clear(window_t *window);
 

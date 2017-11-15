@@ -15,11 +15,17 @@
 ** and return 0 if the mouse is located in the rectangle 
 ** of size size.x * size.y who upper-left corner is at (origin.x, origin.y)
 */
+
+int		in_rect(sfVector2i pos, sfVector2f origin, sfVector2f size)
+{
+  if (pos.x >= origin.x && pos.x <= (origin.x + size.x)
+      && pos.y >= origin.y && pos.y <= (origin.y + size.y))
+    return (0);
+  return (1);
+}
+
 int		is_in_rect(window_t *window, sfVector2f origin, sfVector2f size)
 {
   pos_mouse(window);
-  if (window->mouse.x >= origin.x && window->mouse.x <= (origin.x + size.x)
-      && window->mouse.y >= origin.y && window->mouse.y <= (origin.y + size.y))
-    return (0);
-  return (1);
+  return (in_rect(window->mouse, origin, size));
 }

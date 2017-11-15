@@ -68,7 +68,7 @@ static void	duck_ia(void *data)
   ducks = (duck_t *)data;
   while (ducks->size >= 0)
   {
-    if (rand() % 100 == 0)
+    if (rand() % 100 < SPAWN_PERC)
     {
       if (spawn_duck(ducks) == -1)
 	break;
