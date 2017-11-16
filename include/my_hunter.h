@@ -20,10 +20,14 @@
 
 # define SOUND_SHOT	("sounds/Duck Hunt SFX (13).ogg")
 
+/* The spawning percentage, 100 = huge waves of ducks */
 # define SPAWN_PERC	(10)
 
 # define FALL_SPEED	(2)
 # define FLY_SPEED	(1)
+
+# define DEFAULT_AMMO	(7)
+# define DEFAULT_COUNTD	(200)
 
 enum		status_e
 {
@@ -51,6 +55,8 @@ struct		duck_s
 struct		misc_s
 {
   double	score;
+  uint8_t	ammo;
+  double	countdown;
   struct duck_s	ducks;
   sprite_t	**misc;
   sprite_t	***duck;
@@ -91,6 +97,8 @@ int		pollevent(window_t *window, misc_t *misc);
 int		refresh_clock(clocker_t *timer);
 int		start_clock(clocker_t *timer);
 int		set_clock(clocker_t *timer);
+void		display_ammo(window_t *window, misc_t *misc);
+void		display_time(window_t *window, misc_t *misc);
 void		display_grass(window_t *wnidow, misc_t *misc);
 void		display_ducks(window_t *window, misc_t *misc);
 void		display_background(window_t *window, misc_t *misc);
