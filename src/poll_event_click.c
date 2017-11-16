@@ -7,6 +7,9 @@
 
 #include "my_hunter.h"
 
+#include "my.h"
+#include "defines.h"
+
 int		poll_event_click(window_t *window,
 				 misc_t *misc,
 				 sfEvent *event)

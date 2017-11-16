@@ -10,10 +10,19 @@
 #include "my.h"
 #include "defines.h"
 
+static int	__hit(sfVector2f duck, sfVector2i hit)
+{
+  if (hit.x < duck.x ||
+      hit.x > duck.x + 42 ||
+      hit.y < duck.y ||
+      hit.y > duck.y + 42)
+    return (0);
+  return (1);
+}
+
 static int	__try(misc_t *misc, vect_t *duck, sfVector2i pos)
 {
-  pos.x -= 10;
-  if (in_rect(pos, duck->pos, xy_vectorf(42, 42)) == 0)
+  if (__hit(duck->pos, pos))
   {
     duck->status = falling;
     duck->id = 6;

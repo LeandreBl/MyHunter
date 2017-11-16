@@ -5,27 +5,45 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Thu Apr 20 09:14:16 2017 Léandre Blanchard
-** Last update Sat Jun  3 16:47:45 2017 Léandre Blanchard
+** Last update Thu Nov 16 20:02:22 2017 Léandre Blanchard
 */
 
 #include "csfml.h"
+
+/* Fil the given *rect pointer */
+void		fill_rect(sfVector2i pos, int width, int height, sfIntRect *rect)
+{
+  rect->left = pos.x;
+  rect->top = pos.y;
+  rect->width = width;
+  rect->height = height;
+}
+
+/* Create a sfIntRect from it's 4 values */
+sfIntRect       simple_int_rect(int x, int y, int width, int height)
+{
+  sfIntRect     rect;
+
+  rect.left = x;
+  rect.top = y;
+  rect.width = width;
+  rect.height = height;
+  return (rect);
+}
+
+/* Return 1 if pos is inside the given rect, else 0 */
+int		in_rect(sfVector2i pos, const sfIntRect *rect)
+{
+  return (sfIntRect_contains(rect, pos.x, pos.y));
+}
 
 /*
 ** This function refresh the position of the mouse in window_t->mouse
 ** and return 0 if the mouse is located in the rectangle 
 ** of size size.x * size.y who upper-left corner is at (origin.x, origin.y)
 */
-
-int		in_rect(sfVector2i pos, sfVector2f origin, sfVector2f size)
-{
-  if (pos.x >= origin.x && pos.x <= (origin.x + size.x)
-      && pos.y >= origin.y && pos.y <= (origin.y + size.y))
-    return (0);
-  return (1);
-}
-
-int		is_in_rect(window_t *window, sfVector2f origin, sfVector2f size)
+int		is_in_rect(window_t *window, const sfIntRect *rect)
 {
   pos_mouse(window);
-  return (in_rect(window->mouse, origin, size));
+  return (in_rect(window->mouse, rect));
 }

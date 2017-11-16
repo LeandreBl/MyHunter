@@ -5,21 +5,10 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Fri Mar 31 14:21:49 2017 Léandre Blanchard
-** Last update Tue Nov 14 20:13:43 2017 Léandre Blanchard
+** Last update Thu Nov 16 19:58:34 2017 Léandre Blanchard
 */
 
 #include "csfml.h"
-
-sfIntRect	simple_int_rect(int x, int y, int width, int height)
-{
-  sfIntRect	rect;
-
-  rect.left = x;
-  rect.top = y;
-  rect.width = width;
-  rect.height = height;
-  return (rect);
-}
 
 /*
 ** Does functions all return a sfVector with it's following instructions

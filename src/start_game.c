@@ -13,6 +13,11 @@
 #include "colors.h"
 #include "defines.h"
 
+const uint8_t	FRAMERATE = 60;
+const int	DEFAULT_AMMO  = 7;
+const double	DEFAULT_COUNTD = 200;
+
+
 static void	free_ducks(sprite_t ***sprites)
 {
   int		i;

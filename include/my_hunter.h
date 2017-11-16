@@ -12,8 +12,9 @@
 
 # include "csfml.h"
 
-# define NB_EVENT	(4)
-# define FRAMERATE	(60)
+extern const uint8_t	NB_EVENT;
+
+extern const uint8_t	FRAMERATE;
 
 # define CLOCK_ERROR	("[%sError%s] CLOCK(2) error\n")
 # define MEM_ERROR	("[%sError%s] Not enough memory\n")
@@ -21,15 +22,13 @@
 # define SOUND_SHOT	("sounds/Duck Hunt SFX (13).ogg")
 
 /* The spawning percentage, 100 = huge waves of ducks */
-# define SPAWN_PERC	(10)
+extern const uint8_t	SPAWN_PERCENTAGE;
 
-# define FALL_SPEED	(2)
-# define FLY_SPEED	(1)
+extern const double	FALL_SPEED;
+extern const double	FLY_SPEED;
 
-# define DEFAULT_AMMO	(7)
-# define DEFAULT_COUNTD	(200)
-
-# define NB_THREADS	(2) /* including main */
+extern const int	DEFAULT_AMMO;
+extern const double	DEFAULT_COUNTD;
 
 enum		status_e
 {
@@ -113,6 +112,7 @@ int		start_ducks_ia_thread(duck_t *ducks, sfThread **thread);
 void		shot_duck(misc_t *misc, sfVector2i pos);
 
 /* Poll event ptr functions */
+# define NB_EVENT	(4)
 int		poll_event_close(window_t *window,
 				 misc_t *misc, sfEvent *event);
 int		poll_event_cursor(window_t *window,

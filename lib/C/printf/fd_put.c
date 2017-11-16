@@ -44,23 +44,21 @@ int		fd_putnbr(int fd, int nbr)
 
 int			fd_pointer(int fd, void *ptr)
 {
+  unsigned long long	addr;  
   static char		*base = "0123456789abcedf";
   char			*result;
-  unsigned long long    i;
-  unsigned long long    j;
-  unsigned long long    addr;
+  int			i;
 
-  addr = (long)ptr;
-  j = 0;
-  i = addr;
-  result = my_calloc(sizeof(char) * 100);
+  addr = (unsigned long long)ptr;
+  i = 0;
+  result = my_calloc(sizeof(char) * 21);
   if (result == NULL)
     return (-1);
-  while (i != 0)
+  while (addr != 0)
     {
-      result[j] = base[i % 16];
-      i = i / 16;
-      j = j + 1;
+      result[i] = base[addr % 16];
+      addr = addr / 16;
+      i = i + 1;
     }
   if (fd_putstr(fd, revstr(result)) == -1)
     return (-1);

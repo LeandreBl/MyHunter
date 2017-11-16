@@ -13,6 +13,8 @@
 #include "defines.h"
 #include "colors.h"
 
+const uint8_t	NB_THREADS = 2;
+
 static void	display(window_t *window, misc_t *misc)
 {
   display_grass(window, misc);

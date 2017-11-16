@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Fri Mar 31 13:58:23 2017 Léandre Blanchard
-** Last update Tue Nov 14 20:11:53 2017 Léandre Blanchard
+** Last update Thu Nov 16 20:01:14 2017 Léandre Blanchard
 */
 
 #ifndef MY_CSFML_H_
@@ -88,10 +88,12 @@ void		free_sprites(sprite_t **sprites);
 
 sprite_t	**create_sprites(int nb);
 
-int		in_rect(sfVector2i pos, sfVector2f origin, sfVector2f size);
+void		fill_rect(sfVector2i pos, int width,
+			  int height, sfIntRect *rect);
 
-int		is_in_rect(window_t *window,
-			   sfVector2f origin, sfVector2f size);
+int		in_rect(sfVector2i pos, const sfIntRect *rect);
+
+int		is_in_rect(window_t *window, const sfIntRect *rect);
 
 void		window_clear(window_t *window);
 

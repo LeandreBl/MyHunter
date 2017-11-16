@@ -13,6 +13,10 @@
 #include "defines.h"
 #include "colors.h"
 
+const uint8_t	SPAWN_PERCENTAGE = 2;
+const double	FALL_SPEED = 2;
+const double	FLY_SPEED = 1;
+
 static int	__init_clock(clocker_t *timer)
 {
   if (start_clock(timer) == -1
@@ -73,7 +77,7 @@ static void	duck_ia(void *data)
   ducks = (duck_t *)data;
   while (ducks->size >= 0)
   {
-    if (rand() % 100 < SPAWN_PERC)
+    if (rand() % 100 < SPAWN_PERCENTAGE)
     {
       if (spawn_duck(ducks) == -1)
 	break;

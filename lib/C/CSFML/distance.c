@@ -15,5 +15,5 @@ static double	_cube_(double a)
 /* Calculate the distance between 2 points */
 double		distance(sfVector2f a, sfVector2f b)
 {
-  return (sqrt(_cube_(a.x - b.x) - _cube_(a.y - b.y)));
+  return (sqrt(_cube_(a.x - b.x) + _cube_(a.y - b.y)));
 }

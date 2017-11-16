@@ -44,7 +44,7 @@ RM              = rm -f
 
 CFLAGS          = -W -Werror -Wall -Wextra
 CFLAGS          += -I ./include
-CFLAGS          += -g3
+CFLAGS          += -g3 -O3
 
 all: $(NAME)
 
