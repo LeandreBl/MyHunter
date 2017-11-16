@@ -29,6 +29,8 @@
 # define DEFAULT_AMMO	(7)
 # define DEFAULT_COUNTD	(200)
 
+# define NB_THREADS	(2) /* including main */
+
 enum		status_e
 {
   dead,

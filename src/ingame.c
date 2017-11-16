@@ -13,7 +13,7 @@
 #include "defines.h"
 #include "colors.h"
 
-void		display(window_t *window, misc_t *misc)
+static void	display(window_t *window, misc_t *misc)
 {
   display_grass(window, misc);
   display_cursor(window, misc);
@@ -21,6 +21,15 @@ void		display(window_t *window, misc_t *misc)
   display_score(window, misc);
   display_time(window, misc);
   display_ammo(window, misc);
+}
+
+static void    	countdown(misc_t *misc, clocker_t *timer)
+{
+  double	elapsed;
+
+  elapsed = timer->time / CLOCKS_PER_SEC * 10000 / NB_THREADS;
+  misc->countdown -= elapsed;
+  refresh_clock(timer);
 }
 
 int		ingame(window_t *window, misc_t *misc)
@@ -44,8 +53,7 @@ int		ingame(window_t *window, misc_t *misc)
       return (-1);
     display(window, misc);
     window_refresh(window);
-    misc->countdown -= timer.time / CLOCKS_PER_SEC * 10000;
-    refresh_clock(&timer);
+    countdown(misc, &timer);
   }
   free_thread(ducks);
   mprintf("[%sScore%s] : %s%f%s\n",

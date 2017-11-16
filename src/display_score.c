@@ -14,12 +14,15 @@ void		display_score(window_t *window, misc_t *misc)
 {
   sfVector2f	pos;
   sfColor	color;
+  uint8_t	dim;
 
   pos.x = 24.0 / 256.0 * window->width;
   pos.y = 206.0 / 240.0 * window->height;
-  color = sfColor_fromRGBA(255, 255 - (sfUint8)misc->score, 0, 100);
-  if (misc->score > 255)
-    color.g = 0;
+  if (255 - misc->score / 100 < 0)
+    dim = 0;
+  else
+    dim = 255 - misc->score / 100;
+  color = sfColor_fromRGBA(255, dim, dim, 100);
   put_number((int)misc->score, pos, window, color);
 }
 
