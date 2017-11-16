@@ -13,7 +13,7 @@
 #include "defines.h"
 #include "colors.h"
 
-const uint8_t	NB_THREADS = 2;
+const uint8_t	NB_THREADS = 3;
 
 static void	display(window_t *window, misc_t *misc)
 {
