@@ -98,6 +98,7 @@ int		pollevent(window_t *window, misc_t *misc);
 int		refresh_clock(clocker_t *timer);
 int		start_clock(clocker_t *timer);
 int		set_clock(clocker_t *timer);
+void		reload_alert(window_t *window, misc_t *misc);
 void		display_ammo(window_t *window, misc_t *misc);
 void		display_time(window_t *window, misc_t *misc);
 void		display_grass(window_t *wnidow, misc_t *misc);

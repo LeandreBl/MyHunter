@@ -13,7 +13,7 @@
 #include "defines.h"
 #include "colors.h"
 
-const uint8_t	NB_THREADS = 3;
+const uint8_t	NB_THREADS = 2;
 
 static void	display(window_t *window, misc_t *misc)
 {
@@ -23,6 +23,7 @@ static void	display(window_t *window, misc_t *misc)
   display_score(window, misc);
   display_time(window, misc);
   display_ammo(window, misc);
+  reload_alert(window, misc);
 }
 
 static void    	countdown(misc_t *misc, clocker_t *timer)
