@@ -79,6 +79,15 @@ struct		clocker_s
   double	time;
 };
 
+struct		save_s
+{
+  char		name[20];
+  int		score;
+  double	spawn;
+  double	speed;
+};
+
+typedef struct save_s save_t;
 typedef struct misc_s misc_t;
 typedef struct poll_s poll_t;
 typedef struct clocker_s clocker_t;
@@ -111,6 +120,7 @@ void		dopause(window_t *window, misc_t *misc);
 int		check_alloc(void **ptrs, int total);
 int		start_ducks_ia_thread(duck_t *ducks, sfThread **thread);
 void		shot_duck(misc_t *misc, sfVector2i pos);
+int		save_score(window_t *window, misc_t *misc);
 
 /* Poll event ptr functions */
 # define NB_EVENT	(5)

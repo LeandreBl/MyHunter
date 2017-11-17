@@ -44,6 +44,7 @@ SRCS		+= src/usage_speed.c
 SRCS		+= src/usage_debug.c
 SRCS		+= src/usage_ammo.c
 SRCS		+= src/usage_countdown.c
+SRCS		+= src/save.c
 
 OBJ             = $(SRCS:.c=.o)
 

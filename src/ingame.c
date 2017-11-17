@@ -59,7 +59,6 @@ int		ingame(window_t *window, misc_t *misc)
     countdown(misc, &timer);
   }
   free_thread(ducks);
-  mprintf("[%sScore%s] : %s%f%s\n",
-	  BOLDYELLOW, RESET, misc->datas.score, BOLDCYAN, RESET);
+  save_score(window, misc);
   return (0);
 }
