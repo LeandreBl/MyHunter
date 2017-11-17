@@ -26,7 +26,7 @@ static int	__try(misc_t *misc, vect_t *duck, sfVector2i pos)
   {
     duck->status = falling;
     duck->id = 6;
-    misc->score += (double)((duck->type + 1) * 10) / 2;
+    misc->datas.score += (double)((duck->type + 1) * 10) / 2;
     return (1);
   }
   return (0);
@@ -42,14 +42,14 @@ void		shot_duck(misc_t *misc, sfVector2i pos)
   i = 0;
   shot = 0;
   fpos = xy_vectorf(pos.x, pos.y);
-  while (i < misc->ducks.size)
+  while (i < misc->datas.ducks.size)
   {
-    duck = &misc->ducks.ducks[i];
+    duck = &misc->datas.ducks.ducks[i];
     if (distance(fpos, duck->pos) < 60 &&
 	__try(misc, duck, pos) == 1)
       ++shot;
     ++i;
   }
   if (shot == 0)
-    misc->score -= 10;
+    misc->datas.score -= 10;
 }

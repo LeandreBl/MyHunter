@@ -37,6 +37,9 @@ SRCS            += src/display_score.c
 SRCS            += src/ducks_ia.c
 SRCS            += src/spawn_duck.c
 SRCS            += src/shot_duck.c
+SRCS		+= src/usage_spawnrate.c
+SRCS		+= src/usage_speed.c
+SRCS		+= src/usage_debug.c
 
 OBJ             = $(SRCS:.c=.o)
 

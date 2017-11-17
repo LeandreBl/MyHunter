@@ -27,12 +27,13 @@ void		display_ducks(window_t *window, misc_t *misc)
   vect_t	*duck;
 
   i = 0;
-  while (i < misc->ducks.size)
+  while (i < misc->datas.ducks.size)
   {
-    duck = &misc->ducks.ducks[i];
+    duck = &misc->datas.ducks.ducks[i];
     if (duck->status != dead && duck->id >= 0)
     {
-      put_sprite(window, misc->misc[4], duck->pos);
+      if (misc->hitbox_debug == 1)
+	put_sprite(window, misc->misc[4], duck->pos);
       put_sprite(window, misc->duck[duck->type][duck->id], duck->pos);
     }
     ++i;

@@ -30,7 +30,7 @@ static void    	countdown(misc_t *misc, clocker_t *timer)
   double	elapsed;
 
   elapsed = timer->time / CLOCKS_PER_SEC * 10000 / NB_THREADS;
-  misc->countdown -= elapsed;
+  misc->datas.countdown -= elapsed;
   refresh_clock(timer);
 }
 
@@ -39,11 +39,11 @@ int		ingame(window_t *window, misc_t *misc)
   sfThread	*ducks;
   clocker_t	timer;
 
-  if (start_ducks_ia_thread(&misc->ducks, &ducks) == -1)
+  if (start_ducks_ia_thread(&misc->datas.ducks, &ducks) == -1)
     return (-1);
   start_clock(&timer);
   while (sfRenderWindow_isOpen(window->window) &&
-	 misc->countdown > 0)
+	 misc->datas.countdown > 0)
   {
     set_clock(&timer);
     window_clear(window);
@@ -59,6 +59,6 @@ int		ingame(window_t *window, misc_t *misc)
   }
   free_thread(ducks);
   mprintf("[%sScore%s] : %s%f%s\n",
-	  BOLDYELLOW, RESET, misc->score, BOLDCYAN, RESET);
+	  BOLDYELLOW, RESET, misc->datas.score, BOLDCYAN, RESET);
   return (0);
 }

@@ -12,7 +12,5 @@
 
 int		main(int ac, char **av)
 {
-  if (usage(ac, av))
-    return (0);
-  return (start_game());
+  return (start_game(ac, av));
 }

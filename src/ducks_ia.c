@@ -13,10 +13,6 @@
 #include "defines.h"
 #include "colors.h"
 
-const uint8_t	SPAWN_PERCENTAGE = 2;
-const double	FALL_SPEED = 2;
-const double	FLY_SPEED = 1;
-
 static int	__init_clock(clocker_t *timer)
 {
   if (start_clock(timer) == -1
@@ -53,13 +49,13 @@ static void	move_ducks(duck_t *ducks)
   {
     if (ducks->ducks[i].status == alive)
     {
-      ducks->ducks[i].pos.x += FLY_SPEED;
+      ducks->ducks[i].pos.x += ducks->fly_speed;
       ducks->ducks[i].pos.y += ducks->ducks[i].angle;
       ducks->ducks[i].id = ((int)ducks->ducks[i].pos.x / 8) % 3;
     }
     else if (ducks->ducks[i].status == falling)
     {
-      ducks->ducks[i].pos.y += FALL_SPEED;
+      ducks->ducks[i].pos.y += ducks->fall_speed;
       ducks->ducks[i].id = 7 + (int)(ducks->ducks[i].pos.y / 20) % 4;
     }
     auto_remove_ducks(ducks);
@@ -77,7 +73,7 @@ static void	duck_ia(void *data)
   ducks = (duck_t *)data;
   while (ducks->size >= 0)
   {
-    if (rand() % 100 < SPAWN_PERCENTAGE)
+    if (rand() % 100 < ducks->spawnrate)
     {
       if (spawn_duck(ducks) == -1)
 	break;

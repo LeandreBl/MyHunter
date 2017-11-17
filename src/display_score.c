@@ -18,12 +18,12 @@ void		display_score(window_t *window, misc_t *misc)
 
   pos.x = 24.0 / 256.0 * window->width;
   pos.y = 206.0 / 240.0 * window->height;
-  if (255 - misc->score / 100 < 0)
+  if (255 - misc->datas.score / 100 < 0)
     dim = 0;
   else
-    dim = 255 - misc->score / 100;
+    dim = 255 - misc->datas.score / 100;
   color = sfColor_fromRGBA(255, dim, dim, 100);
-  put_number((int)misc->score, pos, window, color);
+  put_number((int)misc->datas.score, pos, window, color);
 }
 
 void		display_ammo(window_t *window, misc_t *misc)
@@ -40,13 +40,13 @@ void		display_time(window_t *window, misc_t *misc)
 
   pos.x = 200.0 / 256.0 * window->width;
   pos.y = 206.0 / 240.0 * window->height;
-  time = catalloc("%d'%d\"%d", (int)misc->countdown / 60,
-		  (int)misc->countdown % 60,
-		  (int)(misc->countdown * 10) % 10);
+  time = catalloc("%d'%d\"%d", (int)misc->datas.countdown / 60,
+		  (int)misc->datas.countdown % 60,
+		  (int)(misc->datas.countdown * 10) % 10);
   if (time == NULL)
     return;
-  color = sfColor_fromRGBA(255, misc->countdown,
-			   misc->countdown, 100);
+  color = sfColor_fromRGBA(255, misc->datas.countdown,
+			   misc->datas.countdown, 100);
   put_word(time, pos, window, color);
   sfree(&time);
 }

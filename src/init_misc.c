@@ -76,11 +76,6 @@ int		init_misc(misc_t *misc)
     return (-1);
   if (add_duck(misc) == -1)
     return (-1);
-  misc->countdown = DEFAULT_COUNTD;
-  misc->ammo = DEFAULT_AMMO;
-  misc->ducks.size = 0;
-  misc->ducks.ducks = NULL;
-  misc->score = 0;
   misc->dog = NULL;
   return (0);
 }

@@ -21,15 +21,6 @@ extern const uint8_t	FRAMERATE;
 
 # define SOUND_SHOT	("sounds/Duck Hunt SFX (13).ogg")
 
-/* The spawning percentage, 100 = huge waves of ducks */
-extern const uint8_t	SPAWN_PERCENTAGE;
-
-extern const double	FALL_SPEED;
-extern const double	FLY_SPEED;
-
-extern const int	DEFAULT_AMMO;
-extern const double	DEFAULT_COUNTD;
-
 enum		status_e
 {
   dead,
@@ -50,15 +41,24 @@ struct		vect_s
 struct		duck_s
 {
   int		size;
+  double	fly_speed;
+  double	fall_speed;
+  int		spawnrate;
   struct vect_s	*ducks;
+};
+
+struct		data_s
+{
+  double        score;
+  uint8_t       ammo;
+  double        countdown;
+  struct duck_s ducks;
 };
 
 struct		misc_s
 {
-  double	score;
-  uint8_t	ammo;
-  double	countdown;
-  struct duck_s	ducks;
+  struct data_s	datas;
+  uint8_t	hitbox_debug;
   sprite_t	**misc;
   sprite_t	***duck;
   sprite_t	**dog;
@@ -86,8 +86,8 @@ typedef struct vect_s vect_t;
 typedef struct duck_s duck_t;
 
 /* General functions */
-int		usage(int ac, char **av);
-int		start_game(void);
+int		usage(int ac, char **av, misc_t *misc);
+int		start_game(int ac, char **av);
 int		init_misc(misc_t *misc);
 int		init_sounds(window_t *window);
 int		init_ducks(sprite_t ***ducks);
