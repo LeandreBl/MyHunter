@@ -31,6 +31,12 @@ static int	help(__attribute__ ((unused)) char **av,
 	  GREEN, RESET);
   mprintf("\t./my_hunter [%s--debug%s] enable hitbox overview.\n",
 	  GREEN, RESET);
+  mprintf("\t./my_hunter [%s--vertical-speed%s] [float] change ducks's vertical speed.\n",
+	  GREEN, RESET);
+  mprintf("\t./my_hunter [%s--default-ammo%s] [int] change gun magazine size.\n",
+	  GREEN, RESET);
+  mprintf("\t./my_hunter [%s--set-countdown%s] Set the countdown.\n",
+	  GREEN, RESET);
   return (0);
 }
 
@@ -50,6 +56,9 @@ static void	__init(usage_t tab[])
   __add(&tab[4], "--fly-speed", fly_speed);
   __add(&tab[5], "--fall-speed", fall_speed);
   __add(&tab[6], "--debug", hitbox_debug);
+  __add(&tab[7], "--vertical-speed", up_speed);
+  __add(&tab[8], "--default-ammo", default_ammo);
+  __add(&tab[9], "--set-countdown", set_countdown);
 }
 
 static int	loop(usage_t tab[],

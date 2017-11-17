@@ -46,11 +46,13 @@ static void	free_memory(window_t *window, misc_t *misc)
 static void	misc_pre_config(misc_t *misc)
 {
   misc->hitbox_debug = 0;
+  misc->datas.ducks.up_speed = 0;
   misc->datas.ducks.fly_speed = 1;
   misc->datas.ducks.fall_speed = 2;
   misc->datas.ducks.spawnrate = 1;
   misc->datas.countdown = 200;
-  misc->datas.ammo = 7;
+  misc->datas.mag_size = 7;
+  misc->datas.ammo = misc->datas.mag_size;
   misc->datas.ducks.size = 0;
   misc->datas.ducks.ducks = NULL;
   misc->datas.score = 0;

@@ -52,7 +52,7 @@ static int	add_duck(misc_t *sprites)
 
 static int	add_misc(misc_t *sprites)
 {
-  sprites->misc = my_calloc(sizeof(sprite_t *) * 6);
+  sprites->misc = my_calloc(sizeof(sprite_t *) * 7);
   if (sprites->misc == NULL)
   {
     mdprintf(2, MEM_ERROR, RED, RESET);
@@ -65,7 +65,8 @@ static int	add_misc(misc_t *sprites)
   sprites->misc[2] = create_sprite("sprites/parallax.png");
   sprites->misc[3] = create_sprite("sprites/grass.png");
   sprites->misc[4] = create_sprite("sprites/hitbox.png");
-  if (check_alloc((void **)sprites->misc, 5) == -1)
+  sprites->misc[5] = create_sprite("sprites/ammo.png");
+  if (check_alloc((void **)sprites->misc, 6) == -1)
     return (-1);
   return (0);
 }

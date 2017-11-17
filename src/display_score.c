@@ -28,8 +28,20 @@ void		display_score(window_t *window, misc_t *misc)
 
 void		display_ammo(window_t *window, misc_t *misc)
 {
-  window = window;
-  misc = misc;
+  sfVector2f	pos;
+  sfVector2f	scale;
+  int		i;
+
+  i = 0;
+  pos.x = 65.0 / 256.0 * window->width;
+  pos.y = 208.0 / 240.0 * window->height;
+  scale = xy_vectorf(1, 1);
+  while (i < misc->datas.ammo)
+  {
+    put_sprite_resize(window, misc->misc[5], pos, scale);
+    pos.x += 17;
+    ++i;
+  }
 }
 
 void		display_time(window_t *window, misc_t *misc)

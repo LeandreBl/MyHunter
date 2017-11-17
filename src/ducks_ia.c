@@ -50,7 +50,7 @@ static void	move_ducks(duck_t *ducks)
     if (ducks->ducks[i].status == alive)
     {
       ducks->ducks[i].pos.x += ducks->fly_speed;
-      ducks->ducks[i].pos.y += ducks->ducks[i].angle;
+      ducks->ducks[i].pos.y += ducks->ducks[i].angle + ducks->up_speed;
       ducks->ducks[i].id = ((int)ducks->ducks[i].pos.x / 8) % 3;
     }
     else if (ducks->ducks[i].status == falling)

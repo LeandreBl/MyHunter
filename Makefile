@@ -30,6 +30,7 @@ SRCS            += src/poll_event_close.c
 SRCS            += src/poll_event_cursor.c
 SRCS            += src/poll_event_click.c
 SRCS            += src/poll_event_resize.c
+SRCS		+= src/poll_event_reload.c
 SRCS            += src/pause.c
 SRCS            += src/timer.c
 SRCS            += src/display.c
@@ -40,6 +41,8 @@ SRCS            += src/shot_duck.c
 SRCS		+= src/usage_spawnrate.c
 SRCS		+= src/usage_speed.c
 SRCS		+= src/usage_debug.c
+SRCS		+= src/usage_ammo.c
+SRCS		+= src/usage_countdown.c
 
 OBJ             = $(SRCS:.c=.o)
 

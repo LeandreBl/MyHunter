@@ -12,8 +12,6 @@
 
 # include "csfml.h"
 
-extern const uint8_t	NB_EVENT;
-
 extern const uint8_t	FRAMERATE;
 
 # define CLOCK_ERROR	("[%sError%s] CLOCK(2) error\n")
@@ -41,6 +39,7 @@ struct		vect_s
 struct		duck_s
 {
   int		size;
+  double	up_speed;
   double	fly_speed;
   double	fall_speed;
   int		spawnrate;
@@ -50,7 +49,8 @@ struct		duck_s
 struct		data_s
 {
   double        score;
-  uint8_t       ammo;
+  int		mag_size;
+  int           ammo;
   double        countdown;
   struct duck_s ducks;
 };
@@ -112,7 +112,7 @@ int		start_ducks_ia_thread(duck_t *ducks, sfThread **thread);
 void		shot_duck(misc_t *misc, sfVector2i pos);
 
 /* Poll event ptr functions */
-# define NB_EVENT	(4)
+# define NB_EVENT	(5)
 int		poll_event_close(window_t *window,
 				 misc_t *misc, sfEvent *event);
 int		poll_event_cursor(window_t *window,
@@ -121,5 +121,7 @@ int		poll_event_click(window_t *window,
 				 misc_t *misc, sfEvent *event);
 int		poll_event_resize(window_t *window,
 				  misc_t *misc, sfEvent *event);
+int		poll_event_reload(window_t *window,
+				 misc_t *misc, sfEvent *event);
 
 #endif /* !MY_HUNTER_H_ */
