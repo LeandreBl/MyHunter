@@ -19,7 +19,6 @@ static void	__add(poll_t *index, sfEventType type,
   index->type = type;
   index->fction = fction;
 }
-		      
 
 static void	__init(poll_t tab[])
 {

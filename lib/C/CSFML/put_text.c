@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Fri Mar 31 14:08:05 2017 Léandre Blanchard
-** Last update Wed Nov  1 19:21:09 2017 Léandre Blanchard
+** Last update Sat Nov 18 18:35:37 2017 Léandre Blanchard
 */
 
 #include "csfml.h"
@@ -21,7 +21,7 @@
 ** with color "color"
 ** This function does not return
 */
-void            put_word(char *word, sfVector2f pos,
+void            put_word(const char *word, sfVector2f pos,
 			 window_t *window, sfColor color)
 {
   sfFont        *font;

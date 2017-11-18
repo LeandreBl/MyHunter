@@ -7,8 +7,6 @@
 
 #include "my_hunter.h"
 
-#include <string.h>
-
 int		poll_event_resize(window_t *window,
 				  __attribute__ ((unused)) misc_t *misc,
 				  sfEvent *event)

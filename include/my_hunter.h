@@ -18,6 +18,7 @@ extern const uint8_t	FRAMERATE;
 # define MEM_ERROR	("[%sError%s] Not enough memory\n")
 
 # define SOUND_SHOT	("sounds/Duck Hunt SFX (13).ogg")
+# define SAVE_FILENAME	(".hunter_scores")
 
 enum		status_e
 {
@@ -95,6 +96,8 @@ typedef struct vect_s vect_t;
 typedef struct duck_s duck_t;
 
 /* General functions */
+void		crypting(void *data, int size);
+int		scores(window_t *window, misc_t *misc);
 int		usage(int ac, char **av, misc_t *misc);
 int		start_game(int ac, char **av);
 int		init_misc(misc_t *misc);
@@ -102,6 +105,7 @@ int		init_sounds(window_t *window);
 int		init_ducks(sprite_t ***ducks);
 int		spawn_duck(duck_t *ducks);
 void		auto_remove_ducks(duck_t *ducks);
+int		menu(window_t *window, misc_t *misc);
 int		ingame(window_t *window, misc_t *misc);
 int		pollevent(window_t *window, misc_t *misc);
 int		refresh_clock(clocker_t *timer);

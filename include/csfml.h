@@ -5,7 +5,7 @@
 ** Login   <leandre.blanchard@epitech.eu>
 ** 
 ** Started on  Fri Mar 31 13:58:23 2017 Léandre Blanchard
-** Last update Thu Nov 16 20:01:14 2017 Léandre Blanchard
+** Last update Sat Nov 18 18:35:43 2017 Léandre Blanchard
 */
 
 #ifndef MY_CSFML_H_
@@ -136,7 +136,7 @@ void		clear_color(window_t *window, sfColor color);
 
 void		clear_white(window_t *window);
 
-void		put_word(char *word, sfVector2f pos,
+void		put_word(const char *word, sfVector2f pos,
 			 window_t *window, sfColor color);
 
 void		put_number(int nb, sfVector2f pos,

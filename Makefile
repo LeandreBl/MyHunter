@@ -20,7 +20,9 @@ LIB             += -lm
 
 SRCS            = src/main.c
 SRCS            += src/usage.c
+SRCS		+= src/scores.c
 SRCS            += src/start_game.c
+SRCS		+= src/encrypt.c
 SRCS            += src/init_misc.c
 SRCS            += src/init_sounds.c
 SRCS            += src/init_ducks.c
@@ -31,6 +33,7 @@ SRCS            += src/poll_event_cursor.c
 SRCS            += src/poll_event_click.c
 SRCS            += src/poll_event_resize.c
 SRCS		+= src/poll_event_reload.c
+SRCS		+= src/menu.c
 SRCS            += src/pause.c
 SRCS            += src/timer.c
 SRCS            += src/display.c

@@ -60,5 +60,6 @@ int		ingame(window_t *window, misc_t *misc)
   }
   free_thread(ducks);
   save_score(window, misc);
+  sfRenderWindow_close(window->window);
   return (0);
 }

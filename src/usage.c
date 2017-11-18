@@ -23,17 +23,22 @@ static int	help(__attribute__ ((unused)) char **av,
 	  GREEN, RESET);
   mprintf("\t./my_hunter [%s--start%s] to start the game.\n",
 	  GREEN, RESET);
-  mprintf("\t./my_hunter [%s--spawnrate%s] [int] change spawn rate percentage.\n",
+  mprintf("\t./my_hunter [%s--spawnrate%s] [int] change spawn \
+rate percentage.\n",
 	  GREEN, RESET);
-  mprintf("\t./my_hunter [%s--fly-speed%s] [float] change ducks's fly speed.\n",
+  mprintf("\t./my_hunter [%s--fly-speed%s] [float] change ducks's \
+fly speed.\n",
 	  GREEN, RESET);
-  mprintf("\t./my_hunter [%s--fall-speed%s] [float] change ducks's fall speed.\n",
+  mprintf("\t./my_hunter [%s--fall-speed%s] [float] change ducks's \
+fall speed.\n",
 	  GREEN, RESET);
   mprintf("\t./my_hunter [%s--debug%s] enable hitbox overview.\n",
 	  GREEN, RESET);
-  mprintf("\t./my_hunter [%s--vertical-speed%s] [float] change ducks's vertical speed.\n",
+  mprintf("\t./my_hunter [%s--vertical-speed%s] [float] change ducks's \
+vertical speed.\n",
 	  GREEN, RESET);
-  mprintf("\t./my_hunter [%s--default-ammo%s] [int] change gun magazine size.\n",
+  mprintf("\t./my_hunter [%s--default-ammo%s] [int] change gun magazine \
+size.\n",
 	  GREEN, RESET);
   mprintf("\t./my_hunter [%s--set-countdown%s] Set the countdown.\n",
 	  GREEN, RESET);
