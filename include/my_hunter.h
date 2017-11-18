@@ -116,6 +116,7 @@ void		display_time(window_t *window, misc_t *misc);
 void		display_grass(window_t *wnidow, misc_t *misc);
 void		display_ducks(window_t *window, misc_t *misc);
 void		display_background(window_t *window, misc_t *misc);
+void		display_rain(window_t *window, misc_t *misc);
 void		display_cursor(window_t *window, misc_t *misc);
 void		display_bushes(window_t *window, misc_t *misc);
 void		display_score(window_t *window, misc_t *misc);

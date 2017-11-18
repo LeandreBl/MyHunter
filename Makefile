@@ -37,6 +37,7 @@ SRCS		+= src/menu.c
 SRCS            += src/pause.c
 SRCS            += src/timer.c
 SRCS            += src/display.c
+SRCS		+= src/display_rain.c
 SRCS            += src/display_score.c
 SRCS		+= src/reload_alert.c
 SRCS            += src/ducks_ia.c

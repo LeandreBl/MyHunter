@@ -50,6 +50,5 @@ void		shot_duck(misc_t *misc, sfVector2i pos)
       ++shot;
     ++i;
   }
-  if (shot == 0)
-    misc->datas.score -= 10;
+  misc->datas.score += (shot - 1) * 10;
 }

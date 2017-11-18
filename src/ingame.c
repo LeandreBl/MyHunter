@@ -20,6 +20,7 @@ static void	display(window_t *window, misc_t *misc)
   display_grass(window, misc);
   display_cursor(window, misc);
   display_bushes(window, misc);
+  display_rain(window, misc);
   display_score(window, misc);
   display_time(window, misc);
   display_ammo(window, misc);
@@ -59,6 +60,7 @@ int		ingame(window_t *window, misc_t *misc)
     countdown(misc, &timer);
   }
   free_thread(ducks);
+  sfMusic_stop(window->musics[3]);
   sfMusic_play(window->musics[2]);
   save_score(window, misc);
   sfRenderWindow_close(window->window);
