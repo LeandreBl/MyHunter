@@ -20,6 +20,7 @@ void		dopause(window_t *window, misc_t *misc)
   middle_window(window, &pos);
   sfSprite_setColor(misc->misc[0]->sprite,
 		    sfColor_fromRGB(100, 100, 100));
+  sfMusic_pause(window->musics[3]);
   while (sfRenderWindow_isOpen(window->window))
   {
     window_clear(window);
@@ -31,5 +32,6 @@ void		dopause(window_t *window, misc_t *misc)
       break;
     window_refresh(window);
   }
+  sfMusic_play(window->musics[3]);
   sfSprite_setColor(misc->misc[0]->sprite, sfWhite);
 }

@@ -26,14 +26,17 @@ static sfMusic	*add_music(const char *pathname)
 
 int		init_sounds(window_t *window)
 {
-  window->musics = my_calloc(sizeof(sfMusic *) * 2);
+  window->musics = my_calloc(sizeof(sfMusic *) * 5);
   if (window->musics == NULL)
   {
     mdprintf(2, MEM_ERROR, RED, RESET);
     return (-1);
   }
-  window->musics[0] = add_music(SOUND_SHOT);
-  if (check_alloc((void **)window->musics, 1) == -1)
+  window->musics[0] = add_music("sounds/fire.ogg");
+  window->musics[1] = add_music("sounds/menu.ogg");
+  window->musics[2] = add_music("sounds/score.ogg");
+  window->musics[3] = add_music("sounds/ingame.ogg");
+  if (check_alloc((void **)window->musics, 4) == -1)
     return (-1);
   return (0);
 }

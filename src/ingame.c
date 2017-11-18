@@ -59,6 +59,7 @@ int		ingame(window_t *window, misc_t *misc)
     countdown(misc, &timer);
   }
   free_thread(ducks);
+  sfMusic_play(window->musics[2]);
   save_score(window, misc);
   sfRenderWindow_close(window->window);
   return (0);

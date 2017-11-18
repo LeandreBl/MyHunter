@@ -17,7 +17,6 @@ extern const uint8_t	FRAMERATE;
 # define CLOCK_ERROR	("[%sError%s] CLOCK(2) error\n")
 # define MEM_ERROR	("[%sError%s] Not enough memory\n")
 
-# define SOUND_SHOT	("sounds/Duck Hunt SFX (13).ogg")
 # define SAVE_FILENAME	(".hunter_scores")
 
 enum		status_e

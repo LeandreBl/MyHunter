@@ -52,7 +52,11 @@ static void	poll(window_t *window, misc_t *misc, int *cur)
       if (event.key.code == sfKeyReturn)
       {
 	if (*cur == 0)
+	{
+	  sfMusic_stop(window->musics[1]);
+	  sfMusic_play(window->musics[3]);
 	  ingame(window, misc);
+	}
 	if (*cur == 1)
 	  scores(window, misc);
       }
@@ -71,6 +75,9 @@ int		menu(window_t *window, misc_t *misc)
   int		cursor;
 
   cursor = 0;
+  sfMusic_setLoop(window->musics[1], sfTrue);
+  sfMusic_setLoop(window->musics[3], sfTrue);
+  sfMusic_play(window->musics[1]);
   while (sfRenderWindow_isOpen(window->window))
   {
     window_clear(window);
