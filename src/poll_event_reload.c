@@ -13,6 +13,7 @@ int		poll_event_reload(__attribute__ ((unused)) window_t *window,
 {
   if (event->key.code == sfKeyR)
   {
+    sfMusic_play(window->musics[4]);
     misc->datas.score -= misc->datas.ammo;
     misc->datas.ammo = misc->datas.mag_size;
   }

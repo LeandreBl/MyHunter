@@ -26,7 +26,7 @@ static sfMusic	*add_music(const char *pathname)
 
 int		init_sounds(window_t *window)
 {
-  window->musics = my_calloc(sizeof(sfMusic *) * 5);
+  window->musics = my_calloc(sizeof(sfMusic *) * 6);
   if (window->musics == NULL)
   {
     mdprintf(2, MEM_ERROR, RED, RESET);
@@ -36,7 +36,8 @@ int		init_sounds(window_t *window)
   window->musics[1] = add_music("sounds/menu.ogg");
   window->musics[2] = add_music("sounds/score.ogg");
   window->musics[3] = add_music("sounds/ingame.ogg");
-  if (check_alloc((void **)window->musics, 4) == -1)
+  window->musics[4] = add_music("sounds/reload.ogg");
+  if (check_alloc((void **)window->musics, 5) == -1)
     return (-1);
   return (0);
 }

@@ -46,7 +46,7 @@ void		display_bushes(window_t *window, misc_t *misc)
   sfVector2f	scale;
   sfVector2u	size;
 
-  pos.x = (window->width / 2 - window->mouse.x) / 20 - 20;
+  pos.x = (window->width / 2 - window->mouse.x) / 20 - 60;
   pos.y = (window->height / 2 - window->mouse.y) / 20 - 20;
   size = sfTexture_getSize(misc->misc[0]->texture);
   scale.x = (double)window->width / (double)size.x;
