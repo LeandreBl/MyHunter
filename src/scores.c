@@ -81,7 +81,7 @@ static void	display_scores(window_t *window, save_t *scores, int size)
       width = 450;
       height = 50;
     }
-    format = catalloc("[%s]\n\tScore : %f\n\tSpeed : %f\n\tSpawnrate : %d",
+    format = catalloc("[%s]\n\tSpeed : %f\n\tSpawnrate : %f\n\tScore : %d",
 		      scores[i].name, scores[i].score,
 		      scores[i].speed, scores[i].spawn);
     put_word(format, xy_vectorf(width, height), window, sfWhite);
