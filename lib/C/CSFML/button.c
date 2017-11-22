@@ -48,6 +48,7 @@ int		sfbutton_ispressed(sfbutton_t *button, sfVector2i pos)
 
 void		sfbutton_draw(window_t *window, sfbutton_t *button)
 {
+  pos_mouse(window);
   if (sfbutton_ispressed(button, window->mouse))
   {
     sfSprite_setColor(button->sprite->sprite, sfRed);

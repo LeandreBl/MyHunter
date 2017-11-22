@@ -20,6 +20,9 @@ extern "C" {
 #endif
 # include <stddef.h>
 
+/* swap the inside of both values swap(&i, &j) */
+void	swap(void *a, void *b);
+
 /* man 3 memset */
 void	my_memset(void *ptr, int value, size_t size);
 
@@ -237,7 +240,7 @@ int	revtab(char **tabptr);
 ** The tab is NULL terminated
 ** Returns NULL on error
 */
-char	**tab_append(char **tabptr, char *add);
+void	*tab_append(void *tabptr, void *add);
 
 /*
 ** This function remove the char * at tab[index] and frees it
@@ -246,7 +249,7 @@ char	**tab_append(char **tabptr, char *add);
 ** return -1 on Error
 **
 */
-int	tab_remove(char **tabptr, int index);
+int	tab_remove(void *tabptr, int index);
 
 /*
 ** Returns 1 if the end of the [s] string match the
@@ -332,7 +335,7 @@ int	my_intlen(int);
 ** Free each pointers of the tab, and then free
 ** the tab ptr
 */
-void	free_tab(char ***tabaddr);
+void	free_tab(void *tabaddr);
 
 /*
 ** Allocate a tab with [nlines] lines of [nlength] size each one
@@ -373,8 +376,8 @@ void	my_put_nbr(int);
 int	my_putstr(const char *);
 
 /* NULL proof strlen, returns 0 if argument is NULL */
-int	my_strlen(const char *str);
-int	my_kstrlen(const char *str, char k);
+size_t	my_strlen(const char *str);
+size_t	my_kstrlen(const char *str, char k);
 
 /* man atoi */
 int	my_getnbr(const char *);
@@ -408,7 +411,7 @@ char	*my_strndup(const char *src, int size);
 char	*revstr(char *str);
 
 /* Returns the size of a NULL terminated tab */
-int	tablen(char **tabptr);
+size_t	tablen(void *tabptr);
 
 /* Put a tab using \n for each lines */
 void	put_tab(char **tabptr);
