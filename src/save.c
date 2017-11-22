@@ -70,7 +70,7 @@ static int	__init(char **format, misc_t *misc, save_t *pkt)
   pkt->spawn = misc->datas.ducks.spawnrate;
   pkt->speed = misc->datas.ducks.fly_speed;
   zeros(pkt->name, 20);
-  *format = catalloc("Score : %f\nSpeed : %f\nSpawnrate : %d",
+  *format = catalloc("Speed : %f\nSpawnrate : %f\nScore : %d",
 		    pkt->score, pkt->speed, pkt->spawn);
   if (*format == NULL)
   {
