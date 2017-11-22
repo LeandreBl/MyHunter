@@ -10,8 +10,8 @@
 
 #include "csfml.h"
 
-/* Fil the given *rect pointer */
-void		fill_rect(sfVector2i pos, int width, int height, sfIntRect *rect)
+/* Fill the given *rect pointer */
+void		fill_rect(sfVector2f pos, int width, int height, sfIntRect *rect)
 {
   rect->left = pos.x;
   rect->top = pos.y;
@@ -34,7 +34,10 @@ sfIntRect       simple_int_rect(int x, int y, int width, int height)
 /* Return 1 if pos is inside the given rect, else 0 */
 int		in_rect(sfVector2i pos, const sfIntRect *rect)
 {
-  return (sfIntRect_contains(rect, pos.x, pos.y));
+  if (pos.x < rect->left || pos.x > rect->left + rect->width ||
+      pos.y < rect->top || pos.y > rect->top + rect->height)
+    return (0);
+  return (1);
 }
 
 /*

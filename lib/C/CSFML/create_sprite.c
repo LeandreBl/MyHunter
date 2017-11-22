@@ -70,6 +70,11 @@ void			put_sprite_resize(window_t *window,
 					  sfVector2f pos,
 					  sfVector2f resize)
 {
+  if (sprite == NULL)
+  {
+    mdprintf(2, "[%sWarning%s] PutSprite : NULL sprite\n", GREEN, RESET);
+    return;
+  }
   sfSprite_setScale(sprite->sprite, resize);
   sfSprite_setPosition(sprite->sprite, pos);
   sfRenderWindow_drawSprite(window->window, sprite->sprite, NULL);

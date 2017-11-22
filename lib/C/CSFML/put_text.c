@@ -40,7 +40,7 @@ void            put_word(const char *word, sfVector2f pos,
       sfText_setString(text, word);
       sfText_setFont(text, font);
       sfText_setColor(text, color);
-      sfText_setCharacterSize(text, 30);
+      sfText_setCharacterSize(text, 24);
       sfText_setPosition(text, pos);
       sfRenderWindow_drawText(window->window, text, NULL);
       sfText_destroy(text);

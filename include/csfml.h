@@ -66,8 +66,18 @@ struct			window_s
   struct sprite_s      	*frame;
 };
 
+struct			sfbutton_s
+{
+  struct sprite_s	*sprite;
+  char			*name;
+  sfVector2f		pos;
+  sfVector2f		size;
+  int			(*fction)(void *data);
+};
+
 typedef struct window_s window_t;
 typedef struct sprite_s sprite_t;
+typedef struct sfbutton_s sfbutton_t;
 
 sfIntRect	simple_int_rect(int x, int y, int width, int height);
 
@@ -88,7 +98,7 @@ void		free_sprites(sprite_t **sprites);
 
 sprite_t	**create_sprites(int nb);
 
-void		fill_rect(sfVector2i pos, int width,
+void		fill_rect(sfVector2f pos, int width,
 			  int height, sfIntRect *rect);
 
 int		in_rect(sfVector2i pos, const sfIntRect *rect);
@@ -149,6 +159,19 @@ sprite_t	*create_sprite_rect(const char *pathname,
 				    const sfIntRect area);
 
 double		distance(sfVector2f a, sfVector2f b);
+
+sfbutton_t	*sfbutton_create(const char *name, sprite_t *sprite,
+				 const sfIntRect *hitbox,
+				 int (*fction)(void *data));
+int		sfbutton_ispressed(sfbutton_t *button, sfVector2i pos);
+
+void		sfbutton_draw(window_t *window, sfbutton_t *button);
+
+void            sfbutton_draw_name(window_t *window, sfbutton_t *button,
+				   sfColor color);
+int		sfbutton_exec(sfbutton_t *button, sfVector2i pos, void *data);
+
+void		free_sfbutton(sfbutton_t *button);
 
 #ifdef __cplusplus
 }

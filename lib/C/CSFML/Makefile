@@ -18,6 +18,7 @@ ARCH	= ar
 
 SRCS	= clear_win.c
 SRCS	+= free.c
+SRCS	+= free_button.c
 SRCS	+= create_sprite.c
 SRCS	+= init_csfml.c
 SRCS	+= get_pixel_color.c
@@ -33,6 +34,7 @@ SRCS	+= quit.c
 SRCS	+= thread.c
 SRCS	+= xy_vect.c
 SRCS	+= distance.c
+SRCS	+= button.c
 
 OBJS	= $(SRCS:.c=.o)
 
