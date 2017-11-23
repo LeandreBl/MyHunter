@@ -111,5 +111,6 @@ int		scores(window_t *window, misc_t *misc)
     display_scores(window, scores, size);
     window_refresh(window);
   }
+  sfree(&scores);
   return (0);
 }

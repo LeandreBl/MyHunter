@@ -82,6 +82,7 @@ int		init_misc(misc_t *misc)
     return (-1);
   if (add_duck(misc) == -1)
     return (-1);
-  misc->dog = NULL;
+  if (init_dog(&misc->dog) == -1)
+    return (-1);
   return (0);
 }

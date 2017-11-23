@@ -40,6 +40,7 @@ static void	free_memory(window_t *window, misc_t *misc)
 	  CYAN, RESET);
   free_ducks(misc->duck);
   sfree(&misc->datas.ducks.ducks);
+  free_sprites(misc->dog);
   mprintf("[%sMemory Freed%s]\n", YELLOW, RESET);
 }
 
@@ -56,6 +57,7 @@ static void	misc_pre_config(misc_t *misc)
   misc->datas.ducks.size = 0;
   misc->datas.ducks.ducks = NULL;
   misc->datas.score = 0;
+  misc->datas.dog.pos = ORIGIN;
   misc->misc = NULL;
   misc->duck = NULL;
   misc->dog = NULL;

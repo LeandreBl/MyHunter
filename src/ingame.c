@@ -39,9 +39,12 @@ static void    	countdown(misc_t *misc, clocker_t *timer)
 int		ingame(window_t *window, misc_t *misc)
 {
   sfThread	*ducks;
+  sfThread	*dog;
   clocker_t	timer;
 
   if (start_ducks_ia_thread(&misc->datas.ducks, &ducks) == -1)
+    return (-1);
+  if (start_dog_ia_thread(&misc->datas, &dog) == -1)
     return (-1);
   start_clock(&timer);
   while (sfRenderWindow_isOpen(window->window) &&
@@ -51,6 +54,7 @@ int		ingame(window_t *window, misc_t *misc)
     window_clear(window);
     display_background(window, misc);
     display_ducks(window, misc);
+    display_dog(window, misc);
     if (key_released(sfKeyEscape) || key_released(sfKeyP))
       dopause(window, misc);
     if (pollevent(window, misc) == -1)
@@ -59,6 +63,7 @@ int		ingame(window_t *window, misc_t *misc)
     window_refresh(window);
     countdown(misc, &timer);
   }
+  free_thread(dog);
   free_thread(ducks);
   sfMusic_stop(window->musics[3]);
   sfMusic_play(window->musics[2]);

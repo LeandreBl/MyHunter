@@ -27,6 +27,15 @@ enum		status_e
   alive,
 };
 
+enum		state_e
+{
+  waiting,
+  walking,
+  finding,
+  jumping,
+  showing,
+};
+
 struct		vect_s
 {
   sfVector2f	pos;
@@ -46,6 +55,13 @@ struct		duck_s
   struct vect_s	*ducks;
 };
 
+struct		dog_s
+{
+  sfVector2f	pos;
+  int		id;
+  enum state_e	status;
+};
+
 struct		data_s
 {
   double        score;
@@ -53,6 +69,7 @@ struct		data_s
   int           ammo;
   double        countdown;
   struct duck_s ducks;
+  struct dog_s	dog;
 };
 
 struct		misc_s
@@ -93,6 +110,8 @@ typedef struct poll_s poll_t;
 typedef struct clocker_s clocker_t;
 typedef struct vect_s vect_t;
 typedef struct duck_s duck_t;
+typedef struct dog_s dog_t;
+typedef struct data_s data_t;
 
 /* General functions */
 void		crypting(void *data, int size);
@@ -102,6 +121,7 @@ int		start_game(int ac, char **av);
 int		init_misc(misc_t *misc);
 int		init_sounds(window_t *window);
 int		init_ducks(sprite_t ***ducks);
+int		init_dog(sprite_t ***dog);
 int		spawn_duck(duck_t *ducks);
 void		auto_remove_ducks(duck_t *ducks);
 int		menu(window_t *window, misc_t *misc);
@@ -110,6 +130,7 @@ int		pollevent(window_t *window, misc_t *misc);
 int		refresh_clock(clocker_t *timer);
 int		start_clock(clocker_t *timer);
 int		set_clock(clocker_t *timer);
+int		wait_timer(clocker_t *timer);
 void		reload_alert(window_t *window, misc_t *misc);
 void		display_ammo(window_t *window, misc_t *misc);
 void		display_time(window_t *window, misc_t *misc);
@@ -120,9 +141,11 @@ void		display_rain(window_t *window, misc_t *misc);
 void		display_cursor(window_t *window, misc_t *misc);
 void		display_bushes(window_t *window, misc_t *misc);
 void		display_score(window_t *window, misc_t *misc);
+void		display_dog(window_t *window, misc_t *misc);
 void		dopause(window_t *window, misc_t *misc);
 int		check_alloc(void **ptrs, int total);
 int		start_ducks_ia_thread(duck_t *ducks, sfThread **thread);
+int		start_dog_ia_thread(data_t *datas, sfThread **thread);
 void		shot_duck(misc_t *misc, sfVector2i pos);
 int		save_score(window_t *window, misc_t *misc);
 

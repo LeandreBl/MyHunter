@@ -24,7 +24,7 @@ static int	__init_clock(clocker_t *timer)
   return (0);
 }
 
-static int	wait_timer(clocker_t *timer)
+int		wait_timer(clocker_t *timer)
 {
   while (timer->time < CLOCKS_PER_SEC / FRAMERATE)
     if (refresh_clock(timer) == -1)
