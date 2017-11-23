@@ -11,23 +11,6 @@
 #include "defines.h"
 #include "colors.h"
 
-static void	add_letter(save_t *pkt, sfEvent *event)
-{
-  char		c;
-
-  if (((event->key.code <= sfKeyZ && event->key.code >= sfKeyA) ||
-       event->key.code == sfKeySpace) &&
-      my_strlen(pkt->name) < 19)
-    {
-      c = event->key.code + 'a';
-      if (event->key.code == sfKeySpace)
-	c = ' ';
-      pkt->name[my_strlen(pkt->name)] = c;
-    }
-  if (event->key.code == sfKeyBack)
-    shift_right(pkt->name, 1);
-}
-
 static int	__save(save_t *pkt)
 {
   char		*pathname;
@@ -94,9 +77,16 @@ int		save_score(window_t *window, misc_t *misc)
     display(window, misc, &pkt, format);
     while (sfRenderWindow_pollEvent(window->window, &event))
     {
+      if (event.type == sfEvtTextEntered)
+      {
+	if (my_strlen(pkt.name) < 19 &&
+	    event.text.unicode < 127 && event.text.unicode >= ' ')
+	  my_strncat(pkt.name, (char *)&event.text.unicode, 1);
+	if (event.text.unicode == '\b')
+	  shift_right(pkt.name, 1);
+      }
       if (event.type == sfEvtKeyPressed)
       {
-	add_letter(&pkt, &event);
 	if (event.key.code == sfKeyReturn &&
 	    my_strlen(pkt.name) > 0)
 	{
