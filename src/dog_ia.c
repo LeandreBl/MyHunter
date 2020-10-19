@@ -69,6 +69,6 @@ int		start_dog_ia_thread(data_t *datas, sfThread **thread)
   *thread = sfThread_create(dog_ia, (void *)datas);
   if (*thread == NULL)
     return (-1);
-  sfThread_launch(*thread);
+  //sfThread_launch(*thread);
   return (0);
 }
